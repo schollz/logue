@@ -28,6 +28,12 @@ To build the effects, do the following (with `simplepan` as an example):
 cd simplepan && make
 ```
 
+Then to upload into slot `5` do something like 
+
+```
+logue-cli load -i 1 -o 1 -s 5 -u mod*.ntkdigunit
+```
+
 
 ### simplepan
 
