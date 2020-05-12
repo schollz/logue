@@ -42,3 +42,7 @@ logue-cli load -i 1 -o 1 -s 5 -u mod*.ntkdigunit
 ### pitchshift
 
 [pitchshift](https://github.com/schollz/logue/tree/master/pitchshift) is a [fork from @centrevillage](https://github.com/centrevillage/cv_logue), which adds a delay pitch shifting effect.
+
+### tremelo
+
+A nice tremelo from [@ttaschke](github.com/ttaschke/tremoxd), licensed under BSD-3.
