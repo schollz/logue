@@ -1,0 +1,41 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "probe",
+            "command": "logue-cli",
+            "args": ["probe"],
+            "type": "shell",
+        },
+        {
+            "label": "load",
+            "command": "logue-cli",
+            "args": [
+                "load",
+                "-s",
+                "5",
+                "-u",
+                "hpf.ntkdigunit"                
+            ],
+            "type": "shell",
+        }
+    ]
+}

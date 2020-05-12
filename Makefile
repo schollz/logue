@@ -3,7 +3,7 @@
 
 all: clean
 	mkdir -p build
-	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="simplepan tremelo pitchshift" -t logue -f Dockerfile --output build .
+	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="simplepan tremelo pitchshift clipper hipass" -t logue -f Dockerfile --output build .
 	chmod +x build/logue-cli
 
 simplepan:
