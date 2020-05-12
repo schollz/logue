@@ -4,6 +4,18 @@ Some of these are my creations, and some are compiled from [the Unit index](http
 
 ## Pre-requisites
 
+### Docker way
+
+You can build everything with Docker-initiated development environment. Make sure you have Docker 19.03+ and run
+
+```
+make
+```
+
+It will build all units into the `build/` folder. Re-run `make` to rebuild (Docker caches dev environment so its not slow).
+
+### Normal way 
+
 Clone this repository, and then install the [Korg's logue SDK](https://github.com/korginc/logue-sdk):
 
 ```bash
