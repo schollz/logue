@@ -41,11 +41,11 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
 
     float wave;
     wave = s_lfo.sine_uni();
-    
-    *(my++) = *my*(1-s_param) + *my*(1.0f-wave)*(s_param);
-    *(my++) = *my*(1-s_param) + *my*(wave)*(s_param);
-    *(sy++) = *sy*(1-s_param) + *sy*(1.0f-wave)*(s_param);
-    *(sy++) = *sy*(1-s_param) + *sy*(wave)*(s_param);
+    float curmy = *my;
+    *(my++) = curmy*(1-s_param) + curmy*(1.0f-wave)*(s_param);
+    *(my++) = curmy*(1-s_param) + curmy*(wave)*(s_param);
+    *(sy++) = curmy*(1-s_param) + curmy*(1.0f-wave)*(s_param);
+    *(sy++) = curmy*(1-s_param) + curmy*(wave)*(s_param);
   }
 
 }
