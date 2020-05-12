@@ -12,7 +12,7 @@ else
     detected_OS := $(shell uname -s)
 endif
 
-PLATFORMDIR = ..
+PLATFORMDIR = ../logue-sdk/platform/nutekt-digital
 PROJECTDIR = .
 TOOLSDIR = $(PLATFORMDIR)/../../tools
 EXTDIR = $(PLATFORMDIR)/../ext

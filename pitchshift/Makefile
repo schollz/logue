@@ -12,8 +12,7 @@ else
     detected_OS := $(shell uname -s)
 endif
 
-# your minilogue-xd platform dir
-PLATFORMDIR ?= /home/zns/Documents/logue-sdk/platform/nutekt-digital
+PLATFORMDIR = ../logue-sdk/platform/nutekt-digital
 PROJECTDIR = .
 TOOLSDIR = $(PLATFORMDIR)/../../tools
 EXTDIR = $(PLATFORMDIR)/../ext

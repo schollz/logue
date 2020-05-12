@@ -6,7 +6,7 @@ PROJECT = modfx_simplepan
 
 UCSRC =
 
-UCXXSRC =lfo.cpp
+UCXXSRC =simplepan.cpp
 
 UINCDIR =
 
