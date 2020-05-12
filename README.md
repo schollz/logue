@@ -20,10 +20,19 @@ cd logue-sdk/tools/gcc
 ./get_gcc_linux.sh
 ```
 
-## Build effects
+## Effects
 
 To build the effects, do the following (with `simplepan` as an example):
 
 ```
 cd simplepan && make
 ```
+
+
+### simplepan
+
+[simplepan](https://github.com/schollz/logue/tree/master/simplepan) is a simple panning mod effect which allows you to control the depth and rate of a left/right pan.
+
+### pitchshift
+
+[pitchshift](https://github.com/schollz/logue/tree/master/pitchshift) is a [fork from @centrevillage](https://github.com/centrevillage/cv_logue), which adds a delay pitch shifting effect.
