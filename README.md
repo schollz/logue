@@ -1,5 +1,7 @@
 # logue
 
+Some of these are my creations, and some are compiled from [the Unit index](https://korginc.github.io/logue-sdk/unit-index/) and streamlines for a single workflow.
+
 ## Pre-requisites
 
 Clone this repository, and then install the [Korg's logue SDK](https://github.com/korginc/logue-sdk):
