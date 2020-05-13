@@ -49,18 +49,22 @@ logue-cli load -i 1 -o 1 -s 5 -u mod*.ntkdigunit
 ```
 
 
-### simplepan
+### simplepan (modfx)
 
 [simplepan](https://github.com/schollz/logue/tree/master/simplepan) is a simple panning mod effect which allows you to control the depth and rate of a left/right pan.
 
-### pitchshift
+### pitchshift (delfx)
 
 [pitchshift](https://github.com/schollz/logue/tree/master/pitchshift) is a [fork from @centrevillage](https://github.com/centrevillage/cv_logue), which adds a delay pitch shifting effect.
 
-### tremelo
+### tremelo (modfx)
 
 A nice tremelo from [@ttaschke](github.com/ttaschke/tremoxd), licensed under BSD-3.
 
-### tldy
+### tldy (delfx)
 
-This is an awesome time delay [from @techno-cat](https://github.com/techno-cat/logue-user-delfx-tdly), licensed under MIT.
+This is an awesome time delay [from @techno-cat](https://github.com/techno-cat/logue-user-delfx-tdly), licensed under MIT. Note for some reason [Ubuntu can't load this normally](https://github.com/korginc/logue-sdk/issues/37#issuecomment-627982850) to upload you can use
+
+	make -i tldy
+
+which will upload it into slot 1.

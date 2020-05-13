@@ -1,9 +1,9 @@
 
-.PHONY: simplepan tremelo pitchshift clipper
+.PHONY: simplepan tremelo pitchshift clipper tldy
 
 all: clean
 	mkdir -p build
-	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="simplepan tremelo pitchshift clipper hipass" -t logue -f Dockerfile --output build .
+	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="simplepan tremelo pitchshift clipper hipass tldy" -t logue -f Dockerfile --output build .
 	chmod +x build/logue-cli
 
 simplepan:
@@ -31,10 +31,25 @@ clipper:
 	chmod +x build/logue-cli
 	./build/logue-cli load -i 1 -o 1 -s 1 -u build/clipper.ntkdigunit
 
-upload: simplepan tremelo pitchshift hipass
+buildtldy:
+	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="tldy" -t logue -f Dockerfile --output build .
+	chmod +x build/logue-cli
+
+tldy: buildtldy
+	# https://github.com/korginc/logue-sdk/issues/37#issuecomment-627982850
+	./build/logue-cli load -i 1 -o 1 -s 1 -u build/tldy.ntkdigunit -d > load.log 
+	tail -n1 load.log| sed 's/,//g' | sed 's/}//g' | sed 's/{//g' | sed 's/>//g' | sed 's/^ *//g' > load.sysex
+	amidi -p hw:2,0,0 -S `cat load.sysex`
+	rm load.log 
+	rm load.sysex
+
+
+upload: simplepan tremelo pitchshift hipass tldy
 
 clean:
 	rm -rf build
+	rm -f load.log 
+	rm -f load.sysex
 
 reset: all
 	./build/logue-cli clear -i 1 -o 1 -a -m revfx
