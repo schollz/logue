@@ -42,7 +42,7 @@ void REVFX_PROCESS(float *xn, uint32_t frames)
 
 void REVFX_PARAM(uint8_t index, int32_t value)
 {
-  const float valf = q31_to_f32(value) * 100; // valueを小数の0.0~10.0に変換する
+  const float valf = q31_to_f32(value) * 10000; // valueを小数の0.0~10.0に変換する
   switch (index) {
     case k_user_revfx_param_time: // A のノブを回したとき・・・
     volume = valf; //　その値をボリューム(0.0~1.1)として使う
