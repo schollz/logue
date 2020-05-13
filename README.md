@@ -4,7 +4,9 @@ Some of these are my creations, and some are compiled from [the Unit index](http
 
 ## Pre-requisites
 
-### Docker way
+You'll need the Korg logue-sdk environment to start using these effects. The easiest way to do this is using Docker, but you can also do it using a local dev environment.
+
+### Docker dev environment
 
 You can build everything with Docker-initiated development environment. Make sure you have Docker 19.03+ and run
 
@@ -12,23 +14,40 @@ You can build everything with Docker-initiated development environment. Make sur
 make
 ```
 
-It will build all units into the `build/` folder. Re-run `make` to rebuild (Docker caches dev environment so its not slow).
+It will build all units into the `build/` folder. Re-run `make` to rebuild (Docker caches dev environment so its not slow). You can then upload them manually using the `logue-cli` (which is also built and stashed in the `build/` dir).
 
-### Normal way 
+If you want to just build all and upload into specified slots you can do:
+
+```
+make -i upload
+```
+
+If you want to clear everything and upload all:
+
+```
+make -i reset
+```
+
+### Local dev environment 
 
 Clone this repository, and then install the [Korg's logue SDK](https://github.com/korginc/logue-sdk):
 
 ```bash
 git clone https://github.com/schollz/logue
 cd logue 
+
+# get SDK
 git clone --depth 1 https://github.com/korginc/logue-sdk
+
 # get CSMSIS libraries
 cd logue-sdk && git submodule update --depth 1 --init
+
 # install the logue-cli
 cd ../tools/logue-cli
 ./get_logue_cli_linux.sh
 chmod +x logue-cli-*/logue-cli
 sudo mv logue-cli-*/logue-cli /usr/local/bin/
+
 # get linux gcc compiler
 cd logue-sdk/tools/gcc
 ./get_gcc_linux.sh
