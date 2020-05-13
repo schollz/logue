@@ -60,3 +60,7 @@ logue-cli load -i 1 -o 1 -s 5 -u mod*.ntkdigunit
 ### tremelo
 
 A nice tremelo from [@ttaschke](github.com/ttaschke/tremoxd), licensed under BSD-3.
+
+### tldy
+
+This is an awesome time delay [from @techno-cat](https://github.com/techno-cat/logue-user-delfx-tdly), licensed under MIT.
