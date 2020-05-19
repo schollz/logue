@@ -77,19 +77,34 @@ logue-cli load -i $INPORT -o $OUTPORT -s 0 -u mod*.ntkdigunit
 
 ## Effects
 
-### simplepan (modfx)
+### My effects
+
+These are effects I've made (so far pretty simple).
+
+#### simplepan (modfx)
 
 [simplepan](https://github.com/schollz/logue/tree/master/simplepan) is a simple panning mod effect which allows you to control the depth and rate of a left/right pan.
 
-### pitchshift (delfx)
+#### distortion (modfx)
+
+[distortion](https://github.com/schollz/logue/tree/master/distortion) has some very simple code doing distortion based on clip / clip boost / wave fold transfer functions.
+
+- time knob = gain
+- depth knob = wet/dry
+
+### Forked effects
+
+These are effects I've found from others that I've forked here and manipulated a little bit, and integrated into my workflow.
+
+#### pitchshift (delfx)
 
 [pitchshift](https://github.com/schollz/logue/tree/master/pitchshift) is a [fork from @centrevillage](https://github.com/centrevillage/cv_logue), which adds a delay pitch shifting effect. It is licensed under MIT (c) 2019 centrevillage.
 
-### tremelo (modfx)
+#### tremelo (modfx)
 
 A nice tremelo from [@ttaschke](https://github.com/ttaschke/tremoxd), licensed under BSD-3 (c) 2020, Tim.
 
-### tldy (delfx)
+#### tldy (delfx)
 
 This is an awesome time delay [from @techno-cat](https://github.com/techno-cat/logue-user-delfx-tdly), licensed under MIT (c) 2019 Tomoaki Itoh.
 

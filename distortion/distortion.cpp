@@ -30,9 +30,12 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
     for (; my != my_e;) {
         float curmy = * my;
         float original = curmy;
+        if (tparam < 1) {
+            *(my++) = curmy;
+            *(sy++) = curmy;
+            continue;
+        }
         curmy = curmy * tparam; // gain
-        // power gain
-        // curmy = fasterpowf(curmy,tparam);
 
         // // clip
         // if (curmy < -0.5f) {
@@ -63,12 +66,10 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
 
 
         // normalize
-        // if (curmy > 1) {
-        //     curmy = 1;
-        // } else if (curmy < -1) {
-        //     curmy = -1;
-        // }
-	curmy = linintf(sparam, original, curmy);
+        curmy = clipminmaxf(-0.1f, curmy, 0.1f);
+
+
+        curmy = linintf(sparam, original, curmy);
 
         // l-r will be applied each time
         *(my++) = curmy;
@@ -81,7 +82,7 @@ void MODFX_PARAM(uint8_t index, int32_t value) {
     float valf = q31_to_f32(value);
     switch (index) {
     case k_user_modfx_param_time:
-        t_param = valf * 10.0f;
+        t_param = (valf) * 5.0f;
         break;
     case k_user_modfx_param_depth:
         s_param = valf;
