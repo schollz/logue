@@ -32,7 +32,7 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
         float original = curmy;
         curmy = curmy * tparam; // gain
         // power gain
-        // curmy = fasterpow2f(curmy,t);
+        // curmy = fasterpowf(curmy,tparam);
 
         // // clip
         // if (curmy < -0.5f) {
