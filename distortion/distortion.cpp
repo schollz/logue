@@ -24,13 +24,13 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
     float *__restrict my = main_yn;
     const float *my_e = my + 2 * frames;
     float *__restrict sy = sub_yn;
-    float t = t_param;
-    float s = s_param;
+    float tparam = t_param;
+    float sparam = s_param;
 
     for (; my != my_e;) {
         float curmy = * my;
         float original = curmy;
-        curmy = curmy * t; // gain
+        curmy = curmy * tparam; // gain
         // power gain
         // curmy = fasterpow2f(curmy,t);
 
@@ -68,14 +68,10 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
         // } else if (curmy < -1) {
         //     curmy = -1;
         // }
-        curmy = clipminmaxf(-1.f, curmy, 1.f);
+	curmy = linintf(sparam, original, curmy);
 
-        // apply wet-dry mix
-        curmy = f32pair_linint(s_wet, original, curmy);
-
+        // l-r will be applied each time
         *(my++) = curmy;
-        *(my++) = curmy;
-        *(sy++) = curmy;
         *(sy++) = curmy;
     }
 

@@ -49,9 +49,16 @@ chmod +x logue-cli-*/logue-cli
 # put onto path
 sudo mv logue-cli-*/logue-cli /usr/local/bin/
 
+
 # get linux gcc compiler
-cd logue-sdk/tools/gcc
-./get_gcc_linux.sh
+# the following doesn't work in ubuntu 19+...they dropped 32-bit support
+#cd logue-sdk/tools/gcc
+#./get_gcc_linux.sh
+# instead, do (from head of main repo)
+sudo apt install gcc-arm-none-eabi
+mkdir -p logue-sdk/tools/gcc/gcc-arm-none-eabi-5_4-2016q3/bin
+ln -s /usr/bin/arm-none-eabi-gcc logue-sdk/tools/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gcc
+ln -s /usr/bin/arm-none-eabi-g++ logue-sdk/tools/gcc/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-g++
 ```
 
 Now you can build effects using the local environment. Simple `cd` into a directory and run `make`:
