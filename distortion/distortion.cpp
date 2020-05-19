@@ -35,30 +35,30 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
         // curmy = fasterpow2f(curmy,t);
 
         // // clip
-        // if (curmy < -1 * s) {
+        // if (curmy < -0.5f) {
         //     curmy = -0.5;
-        // } else if (curmy > s) {
+        // } else if (curmy > 0.5f) {
         //     curmy = 0.5;
         // } else {
         //     curmy = curmy * 1;
         // }
 
         // // clip boost
-        // if (curmy < -1 * t) {
+        // if (curmy < -0.5) {
         //     curmy = -1;
-        // } else if (curmy > t) {
+        // } else if (curmy > 0.5) {
         //     curmy = 1;
         // } else {
         //     curmy = curmy * 2;
         // }
 
         // wave fold
-        if (curmy < -1 * t_param) {
-            curmy = -1 * curmy - 1;
-        } else if (curmy > t_param) {
-            curmy = -1 * curmy + 1;
+        if (curmy < -0.5f) {
+            curmy = -1. * curmy - 1.f;
+        } else if (curmy > 0.5f) {
+            curmy = -1.f * curmy + 1.f;
         } else {
-            curmy = curmy * 1;
+            curmy = curmy * 1.f;
         }
 
 
@@ -68,7 +68,7 @@ void MODFX_PROCESS(const float *main_xn, float *main_yn,
         // } else if (curmy < -1) {
         //     curmy = -1;
         // }
-        curmy = clipminmaxf(-1, curmy, 1);
+        curmy = clipminmaxf(-1.f, curmy, 1.f);
 
         // apply wet-dry mix
         curmy = f32pair_linint(s_wet, original, curmy);
@@ -85,7 +85,7 @@ void MODFX_PARAM(uint8_t index, int32_t value) {
     float valf = q31_to_f32(value);
     switch (index) {
     case k_user_modfx_param_time:
-        t_param = valf * 10;
+        t_param = valf * 10.0f;
         break;
     case k_user_modfx_param_depth:
         s_param = valf;
