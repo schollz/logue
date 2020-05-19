@@ -37,10 +37,10 @@ git clone https://github.com/schollz/logue
 cd logue 
 
 # get SDK
-git clone --depth 1 https://github.com/korginc/logue-sdk
+git clone https://github.com/korginc/logue-sdk
 
 # get CSMSIS libraries
-cd logue-sdk && git submodule update --depth 1 --init
+cd logue-sdk && git submodule update --init
 
 # install the logue-cli
 cd ../tools/logue-cli

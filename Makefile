@@ -1,5 +1,5 @@
 
-.PHONY: simplepan tremelo pitchshift clipper tldy
+.PHONY: simplepan tremelo pitchshift clipper tldy distortion
 
 all: clean
 	mkdir -p build
@@ -37,6 +37,13 @@ hipass:
 	INPORT=`build/logue-cli probe 2>&1 | grep NTS | grep "in " | sed "s/:.*//" | sed "s/in //" | sed 's/^ *//g'`; \
 	OUTPORT=`build/logue-cli probe 2>&1 | grep NTS | grep "out " | sed "s/:.*//" | sed "s/out //" | sed 's/^ *//g'`; \
 	./build/logue-cli load -i $$INPORT -o $$OUTPORT -s 0 -u build/hipass.ntkdigunit
+
+distortion:
+	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="distortion" -t logue -f Dockerfile --output build .
+	chmod +x build/logue-cli
+# 	INPORT=`build/logue-cli probe 2>&1 | grep NTS | grep "in " | sed "s/:.*//" | sed "s/in //" | sed 's/^ *//g'`; \
+# 	OUTPORT=`build/logue-cli probe 2>&1 | grep NTS | grep "out " | sed "s/:.*//" | sed "s/out //" | sed 's/^ *//g'`; \
+# 	./build/logue-cli load -i $$INPORT -o $$OUTPORT -s 0 -u build/hipass.ntkdigunit
 
 clipper:
 	DOCKER_BUILDKIT=1 docker build --build-arg BUILDTIME=`date +%s` --build-arg BUILDS="clipper" -t logue -f Dockerfile --output build .
