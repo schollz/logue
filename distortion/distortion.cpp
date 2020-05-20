@@ -82,7 +82,7 @@ void MODFX_PARAM(uint8_t index, int32_t value) {
     float valf = q31_to_f32(value);
     switch (index) {
     case k_user_modfx_param_time:
-        t_param = (valf) * 5.0f;
+        t_param = (valf) * 10.0f;
         break;
     case k_user_modfx_param_depth:
         s_param = valf;
